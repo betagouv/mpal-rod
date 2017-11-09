@@ -15,7 +15,7 @@ class V1::IntervenantsController < ApplicationController
     return render text: {
       "code_commune": code_commune,
       "type_departement": "Non déployé",
-      "operateur": OPERATEURS[departement],
+      "operateurs": OPERATEURS[departement],
       "service_instructeur": INSTRUCTEURS[departement][0],
       "dlc2": [],
       "pris_anah": PRIS[departement],
