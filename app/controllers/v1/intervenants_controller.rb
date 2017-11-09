@@ -1,6 +1,8 @@
 class V1::IntervenantsController < ApplicationController
   before_action :set_headers
 
+  CODES_COMMUNE_OPA = %w(25200 88310 95000 31110 62170)
+
   def index
     if (missing_params = [:adresse, :thematiques].keep_if { |param| params[param].blank? }).present?
       return render text: { "error": missing_params.map { |param| "#{param} is missing" }.join(" and ") }.to_json
@@ -9,18 +11,30 @@ class V1::IntervenantsController < ApplicationController
     departement = nil
     if params[:adresse] =~ /\d{5,}/
       code_commune = Regexp.last_match[0]
-      departement = Regexp.last_match[0][0..1]
+      departement = code_commune[0..1]
     end
 
-    return render text: {
-      "code_commune": code_commune,
-      "type_departement": "Non déployé",
-      "operateur": OPERATEURS[departement],
-      "service_instructeur": INSTRUCTEURS[departement][0],
-      "dlc2": [],
-      "pris_anah": PRIS[departement],
-      "pris_eie": [],
-    }.to_json
+    if CODES_COMMUNE_OPA.include? code_commune
+      return render plain: {
+        "operation_programmee": OPERATIONS_PROGRAMMEES[departement],
+        "code_commune": code_commune,
+        "type_departement": "Non déployé",
+        "service_instructeur": INSTRUCTEURS[departement][0],
+        "dlc2": [],
+        "pris_anah": PRIS[departement],
+        "pris_eie": [],
+      }.to_json
+    else
+      return render plain: {
+        "code_commune": code_commune,
+        "type_departement": "Non déployé",
+        "operateur": OPERATEURS[departement],
+        "service_instructeur": INSTRUCTEURS[departement][0],
+        "dlc2": [],
+        "pris_anah": PRIS[departement],
+        "pris_eie": [],
+      }.to_json
+    end
   end
 
 
@@ -28,6 +42,114 @@ private
   def set_headers
     response.headers["Content-Type"] = "application/json"
   end
+
+  OPERATIONS_PROGRAMMEES = {
+    "25" => [{
+      libelle: "OPAH CENTRE BOURG COMMUNE DE PONT SAINT ESPRIT",
+      code_opal: "030OPA014",
+      operateurs: [
+        {
+          raison_sociale: "AJJ",
+          id_clavis: 5267,
+          email: "operateur25-1@anah.gouv.fr",
+          siret: "30247604900046",
+          adresse_postale: {
+            adresse1: "30 rue du Caporal Peugeot",
+            adresse2: "",
+            adresse3: "",
+            code_postal: "25000",
+            ville: "BESANCON"
+          },
+          tel: "0302010203",
+          web: "www.soliha.fr"
+        },
+      ],
+    }],
+    "95" => [{
+      libelle: "OPAH CENTRE BOURG COMMUNE DE CERGY",
+      code_opal: "030OPA014",
+      operateurs: [
+        {
+          raison_sociale: "SOLIHA Paris.Hauts de Seine.Val d'Oise",
+          id_clavis: 5271,
+          email: "operateur95-1@anah.gouv.fr",
+          siret: "30247604900036",
+          adresse_postale: {
+            adresse1: "Les Châteaux Saint-Sylvère",
+            adresse2: "",
+            adresse3: "",
+            code_postal: "95000",
+            ville: "Cergy"
+          },
+          tel: "04 37 28 70 20",
+          web: "www.rhonegrandlyon.soliha.fr"
+        },
+      ],
+    }],
+    "88" => [{
+      libelle: "OPAH CENTRE BOURG COMMUNE DE EPINAL",
+      code_opal: "030OPA014",
+      operateurs: [
+        {
+          raison_sociale: "URBAM CONSEIL SAS",
+          id_clavis: 5265,
+          email: "operateur88-1@anah.gouv.fr",
+          siret: "30247634900036",
+          adresse_postale: {
+            adresse1: "5 rue Thiers BP 450",
+            adresse2: "",
+            adresse3: "",
+            code_postal: "88011",
+            ville: "BESEPINAL CEDEX"
+          },
+          tel: "03 00 11 22 33",
+          web: "www.urbam.fr"
+        },
+      ],
+    }],
+    "62" => [{
+      libelle: "OPAH CENTRE BOURG COMMUNE DE ARRAS",
+      code_opal: "030OPA014",
+      operateurs: [
+        {
+          raison_sociale: "SOLIHA du Pas de Calais",
+          id_clavis: 5275,
+          email: "operateur62-1@anah.gouv.fr",
+          siret: "30247604900036",
+          adresse_postale: {
+            adresse1: "6 Rue Jean Bodel",
+            adresse2: "",
+            adresse3: "",
+            code_postal: "62000",
+            ville: "Arras"
+          },
+          tel: "04 37 28 70 20",
+          web: "www.rhonegrandlyon.soliha.fr"
+        },
+      ],
+    }],
+    "31" => [{
+      libelle: "OPAH CENTRE BOURG COMMUNE DE TOULOUSE",
+      code_opal: "030OPA014",
+      operateurs: [
+        {
+          raison_sociale: "SOLIHA Haute Garonne",
+          id_clavis: 5276,
+          email: "operateur31-1@anah.gouv.fr",
+          siret: "77557134200077",
+          adresse_postale: {
+            adresse1: "2 Boulevard Armand Duportal",
+            adresse2: "",
+            adresse3: "",
+            code_postal: "31000",
+            ville: "Toulouse"
+          },
+          tel: "04 37 28 70 20",
+          web: "www.rhonegrandlyon.soliha.fr"
+        },
+      ],
+    }],
+  }
 
   PRIS = {
     "25" => [{
@@ -265,7 +387,6 @@ private
       raison_sociale: "DDT 25",
       id_clavis: 5054,
       email: "demo-delegation@anah.gouv.fr",
-      type: "DDT",
       siret: "30247604900036",
       adresse_postale: {
         adresse1: "30 rue du Caporal Peugeot",
@@ -285,7 +406,6 @@ private
       phone: "03 99 88 77 66",
       siret: "30227604900036",
       email: "delegation88-1@anah.gouv.fr",
-      type: "DDT",
       adresse_postale: {
         adresse1: "5 rue Thiers BP 450",
         adresse2: "",
@@ -302,7 +422,6 @@ private
       id_clavis: 5123,
       email: "delegation95-1@anah.gouv.fr",
       siret: "30247604900037",
-      type: "DDT",
       adresse_postale: {
         adresse1: "Les Châteaux Saint-Sylvère",
         adresse2: "",
@@ -318,7 +437,6 @@ private
       raison_sociale: "DDT de Haute-Garonne",
       id_clavis: 5062,
       email: "delegation31@anah.gouv.fr",
-      type: "DDT",
       siret: "30247604900036",
       adresse_postale: {
         adresse1: "2 Boulevard Armand Duportal",
@@ -334,7 +452,6 @@ private
       raison_sociale: "Conseil Départemental de la Haute-Garonne",
       id_clavis: 5182,
       email: "delegataire-cd31-1@anah.gouv.fr",
-      type: "DLC3",
       siret: "30247604500036",
       adresse_postale: {
         adresse1: "2 Boulevard Armand Duportal",
@@ -351,7 +468,6 @@ private
       raison_sociale: "Direction Départementale des Territoires et de la Mer du Pas-de-Calais",
       id_clavis: 5093,
       email: "delegation62-1@anah.gouv.fr",
-      type: "DDT",
       siret: "30248604900036",
       adresse_postale: {
         adresse1: "8 Rue du Puits d'Amour",
@@ -367,7 +483,6 @@ private
       raison_sociale: "Communauté Urbaine d'Arras",
       id_clavis: 5226,
       email: "delegataire-Arras62-1@anah.gouv.fr",
-      type: "DLC3",
       siret: "30248604900176",
       adresse_postale: {
         adresse1: "Boulevard du Général de Gaulle",
@@ -383,7 +498,6 @@ private
       raison_sociale: "Communauté d'Agglomération de Béthune-Bruay",
       id_clavis: 5228,
       email: "delegataire-Bethune62-1@anah.gouv.fr",
-      type: "DLC2",
       siret: "30246704900176",
       adresse_postale: {
         adresse1: "100 Avenue de Londres",
@@ -404,7 +518,6 @@ private
       id_clavis: 5001,
       adresse_postale: "",
       email: "referent-ssi@anah.gouv.fr",
-      type: "siege"
     },
     {
       departements: [],
@@ -412,42 +525,69 @@ private
       id_clavis: 5251,
       adresse_postale: "",
       email: "conseiller-part@anah.gouv.fr",
-      type: "siege"
     },
   ]
 
   DREALS = [
     {
       departements: ["21", "25", "39", "58", "70", "71", "89", "90"],
-      raison_sociale: "DREAL Bourgogne France-Comté",
-      id_clavis: 5268,
-      adresse_postale: "",
-      email: "dreal-bourgogne-franchecomte@anah.gouv.fr",
-      type: "dreal"
+      id_clavis: 5025,
+      raison_sociale: "DREAL Ile-de-France",
+      adresse_postale: {
+          adresse1: "Cité administrative Bât. G  1 rue de la cité administrative  CS 80002",
+          adresse2: "",
+          adresse3: "",
+          code_postal: "31074",
+          ville: "TOULOUSE CEDEX 9"
+      },
+      tel: "0561585000",
+      email: "drihl-ile-de-france-@anah.gouv.fr",
+      web: ""
     },
     {
       departements: ["75", "77", "78", "91", "92", "93", "94", "95"],
-      raison_sociale: "DREAL Ile-de-France",
       id_clavis: 5025,
-      adresse_postale: "",
+      raison_sociale: "DREAL Ile-de-France",
+      adresse_postale: {
+          adresse1: "Cité administrative Bât. G  1 rue de la cité administrative  CS 80002",
+          adresse2: "",
+          adresse3: "",
+          code_postal: "31074",
+          ville: "TOULOUSE CEDEX 9"
+      },
+      tel: "0561585000",
       email: "drihl-ile-de-france-@anah.gouv.fr",
-      type: "dreal"
+      web: ""
     },
     {
       departements: ["9", "11", "12", "30", "31", "32", "34", "46", "48", "65", "66", "81", "82"],
-      raison_sociale: "DREAL Occitanie",
       id_clavis: 5273,
-      adresse_postale: "",
+      raison_sociale: "DREAL Occitanie",
+      adresse_postale: {
+          adresse1: "Cité administrative Bât. G  1 rue de la cité administrative  CS 80002",
+          adresse2: "",
+          adresse3: "",
+          code_postal: "31074",
+          ville: "TOULOUSE CEDEX 9"
+      },
+      tel: "0561585000",
       email: "dreal-occitanie@anah.gouv.fr",
-      type: "dreal"
+      web: ""
     },
     {
       departements: ["2", "59", "60", "62", "80"],
-      raison_sociale: "DREAL Hauts de France",
       id_clavis: 5279,
-      adresse_postale: "",
+      raison_sociale: "DREAL Hauts de France",
+      adresse_postale: {
+          adresse1: "Cité administrative Bât. G  1 rue de la cité administrative  CS 80002",
+          adresse2: "",
+          adresse3: "",
+          code_postal: "31074",
+          ville: "TOULOUSE CEDEX 9"
+      },
+      tel: "0561585000",
       email: "dreal-hauts-de-france@anah.gouv.fr",
-      type: "dreal"
+      web: ""
     },
   ]
 end
