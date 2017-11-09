@@ -32,7 +32,7 @@ class V1::IntervenantsController < ApplicationController
         "service_instructeur": INSTRUCTEURS[departement],
         "dlc2": [],
         "pris_anah": PRIS[departement],
-        "pris_eie": [],
+        "pris_eie": PRIS_EIE[departement],
       }.to_json
     end
   end
@@ -238,6 +238,83 @@ private
       email: "adil_75@mailinator.com",
       tel: "03 33 44 55 66",
       web: "www.adil25.org"
+    }],
+  }
+
+  PRIS_EIE = {
+    "25" => [{
+      raison_sociale: "Mon Pris EIE",
+      id_clavis: 1000,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort PRIS",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "25000",
+        ville: "Besançon"
+      },
+      email: "pris_EIE@anah.gouv.fr",
+      web: "www.pris.org",
+      tel: "03 81 61 92 41"
+    }],
+
+    "88" => [{
+      raison_sociale: "Mon Pris EIE",
+      id_clavis: 1000,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort PRIS",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "25000",
+        ville: "Besançon"
+      },
+      email: "pris_EIE@anah.gouv.fr",
+      web: "www.pris.org",
+      tel: "03 81 61 92 41"
+    }],
+
+    "95" => [{
+      raison_sociale: "Mon Pris EIE",
+      id_clavis: 1000,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort PRIS",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "25000",
+        ville: "Besançon"
+      },
+      email: "pris_EIE@anah.gouv.fr",
+      web: "www.pris.org",
+      tel: "03 81 61 92 41"
+    }],
+
+    "31" => [{
+      raison_sociale: "Mon Pris EIE",
+      id_clavis: 1000,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort PRIS",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "25000",
+        ville: "Besançon"
+      },
+      email: "pris_EIE@anah.gouv.fr",
+      web: "www.pris.org",
+      tel: "03 81 61 92 41"
+    }],
+
+    "62" => [{
+      raison_sociale: "Mon Pris EIE",
+      id_clavis: 1000,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort PRIS",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "25000",
+        ville: "Besançon"
+      },
+      email: "pris_EIE@anah.gouv.fr",
+      web: "www.pris.org",
+      tel: "03 81 61 92 41"
     }],
   }
 
