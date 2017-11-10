@@ -22,7 +22,7 @@ class V1::IntervenantsController < ApplicationController
         "service_instructeur": INSTRUCTEURS[departement],
         "dlc2": [],
         "pris_anah": PRIS[departement],
-        "pris_eie": [],
+        "pris_eie": PRIS_EIE[departement],
       }.to_json
     else
       return render plain: {
