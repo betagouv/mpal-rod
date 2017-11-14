@@ -455,7 +455,7 @@ class V1::IntervenantsController < ApplicationController
 
   INSTRUCTEURS = {
     "25"=> [{
-      raison_sociale: "DDT 25",
+      raison_sociale: "DDT 25 test",
       id_clavis: 5054,
       email: "demo-delegation@anah.gouv.fr",
       siret: "30247604900036",
