@@ -37,11 +37,6 @@ class V1::IntervenantsController < ApplicationController
     end
   end
 
-private
-  def set_headers
-    response.headers["Content-Type"] = "application/json"
-  end
-
   OPERATIONS_PROGRAMMEES = {
     "25" => [{
       libelle: "OPAH CENTRE BOURG COMMUNE DE PONT SAINT ESPRIT",
@@ -666,4 +661,9 @@ private
       web: ""
     },
   ]
+
+private
+  def set_headers
+    response.headers["Content-Type"] = "application/json"
+  end
 end
