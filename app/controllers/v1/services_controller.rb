@@ -334,6 +334,7 @@ private
       autorite_gestion: false,
       type_perimetre_geo: "autre",
       perimetre_geo: [],
+      tel: "0561585000",
     },
     {
       departements: [],
@@ -345,6 +346,7 @@ private
       autorite_gestion: false,
       type_perimetre_geo: "autre",
       perimetre_geo: [],
+      tel: "0561585000",
     },
     {
       departements: ["21", "25", "39", "58", "70", "71", "89", "90"],
