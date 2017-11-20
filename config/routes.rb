@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace "v1", format: false do
       resources :intervenants, only: [:index]
       get "service/:id_clavis", to: "services#show"
+      get "intervenants/:departement", to: "departements#show"
     end
   end
 end
