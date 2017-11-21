@@ -70,7 +70,7 @@ private
         web: "www.rhonegrandlyon.soliha.fr"
       }],
 
-      instructeurs:[{
+      service_instructeur:[{
         raison_sociale: "DDT 25",
         id_clavis: 5054,
         email: "demo-delegation@anah.gouv.fr",
@@ -151,7 +151,7 @@ private
         web: "www.rhonegrandlyon.soliha.fr"
       }],
 
-      instructeurs:[{
+      service_instructeur:[{
         raison_sociale: "DDT des VOSGES",
         id_clavis: 5119,
         adresse_postale: "22-26 Avenue Dutac, 88000 Épinal",
@@ -232,7 +232,7 @@ private
         web: "www.rhonegrandlyon.soliha.fr"
       }],
 
-      instructeurs:[{
+      service_instructeur:[{
         raison_sociale: "DDT du Val d'Oise",
         id_clavis: 5123,
         email: "delegation95-1@anah.gouv.fr",
@@ -311,7 +311,7 @@ private
         web: "www.rhonegrandlyon.soliha.fr"
       }],
 
-      instructeurs:[{
+      service_instructeur:[{
         raison_sociale: "DDT de Haute-Garonne",
         id_clavis: 5062,
         email: "delegation31@anah.gouv.fr",
@@ -405,7 +405,7 @@ private
         web: "www.rhonegrandlyon.soliha.fr"
       }],
 
-      instructeurs:[{
+      service_instructeur:[{
         raison_sociale: "Direction Départementale des Territoires et de la Mer du Pas-de-Calais",
         id_clavis: 5093,
         email: "delegation62-1@anah.gouv.fr",
