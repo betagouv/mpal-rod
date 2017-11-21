@@ -2,7 +2,7 @@ class V1::DepartementsController < ApplicationController
 
   def show
     # return render json: INTERVENANTS_PAR_DEPARTEMENT["25"]
-    return render json: INTERVENANTS_PAR_DEPARTEMENT.select{ |departement| departement == params[:departement] }
+    return render json: INTERVENANTS_PAR_DEPARTEMENT[params[:departement]]
   end
 
 private
