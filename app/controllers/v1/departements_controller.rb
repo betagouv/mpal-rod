@@ -112,7 +112,7 @@ private
           adresse1: "1 Rue de Ronde du Fort PRIS",
           adresse2: "",
           adresse3: "",
-          code_postal: "25000",
+          code_postal: "88000",
           ville: "Besançon"
         },
         email: "pris_EIE@anah.gouv.fr",
@@ -193,7 +193,7 @@ private
           adresse1: "1 Rue de Ronde du Fort PRIS",
           adresse2: "",
           adresse3: "",
-          code_postal: "25000",
+          code_postal: "95000",
           ville: "Besançon"
         },
         email: "pris_EIE@anah.gouv.fr",
@@ -225,7 +225,7 @@ private
           adresse1: "60 Boulevard Déodat de Sévérac",
           adresse2: "",
           adresse3: "",
-          code_postal: "31300",
+          code_postal: "95300",
           ville: "Toulouse"
         },
         tel: "04 37 28 70 20",
@@ -272,7 +272,7 @@ private
           adresse1: "1 Rue de Ronde du Fort PRIS",
           adresse2: "",
           adresse3: "",
-          code_postal: "25000",
+          code_postal: "31000",
           ville: "Besançon"
         },
         email: "pris_EIE@anah.gouv.fr",
@@ -366,7 +366,7 @@ private
           adresse1: "1 Rue de Ronde du Fort PRIS",
           adresse2: "",
           adresse3: "",
-          code_postal: "25000",
+          code_postal: "62000",
           ville: "Besançon"
         },
         email: "pris_EIE@anah.gouv.fr",
