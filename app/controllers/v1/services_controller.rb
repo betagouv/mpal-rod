@@ -360,7 +360,7 @@ private
       type_service: "DREAL",
       autorite_gestion: false,
       type_perimetre_geo: "autre",
-      perimetre_geo: [],
+      perimetre_geo: ["21", "25", "39", "58", "70", "71", "89", "90"],
     },
     {
       departements: ["75", "77", "78", "91", "92", "93", "94", "95"],
@@ -374,7 +374,7 @@ private
       type_service: "DREAL",
       autorite_gestion: false,
       type_perimetre_geo: "autre",
-      perimetre_geo: [],
+      perimetre_geo: ["75", "77", "78", "91", "92", "93", "94", "95"],
     },
     {
       departements: ["9", "11", "12", "30", "31", "32", "34", "46", "48", "65", "66", "81", "82"],
@@ -388,7 +388,7 @@ private
       type_service: "DREAL",
       autorite_gestion: false,
       type_perimetre_geo: "autre",
-      perimetre_geo: [],
+      perimetre_geo: ["9", "11", "12", "30", "31", "32", "34", "46", "48", "65", "66", "81", "82"],
     },
     {
       departements: ["2", "59", "60", "62", "80"],
@@ -402,7 +402,7 @@ private
       type_service: "DREAL",
       autorite_gestion: false,
       type_perimetre_geo: "autre",
-      perimetre_geo: [],
+      perimetre_geo: ["2", "59", "60", "62", "80"],
     },
   ]
 end
