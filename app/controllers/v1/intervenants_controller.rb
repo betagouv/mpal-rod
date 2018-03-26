@@ -182,7 +182,22 @@ class V1::IntervenantsController < ApplicationController
       web: "www.adil25.org",
       tel: "03 81 61 92 41"
     }],
-
+    
+    "59" => [{
+      raison_sociale: "ADIL 25",
+      id_clavis: 5264,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort Griffon",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "25000",
+        ville: "Besançon"
+      },
+      email: "demo-pris@anah.gouv.fr",
+      web: "www.adil25.org",
+      tel: "03 81 61 92 41"
+    }],
+    
     "88" => [{
       raison_sociale: "PRIS-DDT-88",
       id_clavis: 5269,
@@ -274,6 +289,21 @@ class V1::IntervenantsController < ApplicationController
       tel: "03 81 61 92 41"
     }],
 
+    "59" => [{
+      raison_sociale: "Mon Pris EIE",
+      id_clavis: 1000,
+      adresse_postale: {
+        adresse1: "1 Rue de Ronde du Fort PRIS",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "59000",
+        ville: "Lolle"
+      },
+      email: "pris_EIE@anah.gouv.fr",
+      web: "www.pris.org",
+      tel: "03 81 61 92 41"
+    }],
+    
     "88" => [{
       raison_sociale: "Mon Pris EIE",
       id_clavis: 1000,
@@ -368,6 +398,37 @@ class V1::IntervenantsController < ApplicationController
       web: "www.rhonegrandlyon.soliha.fr"
     }],
 
+    "59" => [{
+      raison_sociale: "URBAM CONSEIL SAS",
+      id_clavis: 5265,
+      email: "operateur88-1@anah.gouv.fr",
+      siret: "30247634900036",
+      adresse_postale: {
+        adresse1: "5 rue Thiers BP 450",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "88011",
+        ville: "BESEPINAL CEDEX"
+      },
+      tel: "03 00 11 22 33",
+      web: "www.urbam.fr"
+    },
+    {
+      raison_sociale: "BET Exergie",
+      id_clavis: 5270,
+      email: "operateur88-2@anah.gouv.fr",
+      siret: "34758223100168",
+      adresse_postale: {
+        adresse1: "2 Route d'Aydoilles",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "88600",
+        ville: "Fontenay"
+      },
+      tel: "04 37 28 70 20",
+      web: "www.rhonegrandlyon.soliha.fr"
+    }],
+    
     "88" => [{
       raison_sociale: "URBAM CONSEIL SAS",
       id_clavis: 5265,
@@ -510,6 +571,22 @@ class V1::IntervenantsController < ApplicationController
       web: "www.urbam.fr"
     }],
 
+    "59" => [{
+      raison_sociale: "DDT du Val d'Oise",
+      id_clavis: 5123,
+      email: "delegation95-1@anah.gouv.fr",
+      siret: "30247604900037",
+      adresse_postale: {
+        adresse1: "Les Châteaux Saint-Sylvère",
+        adresse2: "",
+        adresse3: "",
+        code_postal: "95000",
+        ville: "Cergy"
+      },
+      tel: "04 37 28 79 20",
+      web: "www.rhonegrandlyon.soliha.fr"
+    }],
+    
     "95" => [{
       raison_sociale: "DDT du Val d'Oise",
       id_clavis: 5123,
