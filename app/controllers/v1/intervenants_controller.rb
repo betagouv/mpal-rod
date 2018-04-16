@@ -170,7 +170,7 @@ class V1::IntervenantsController < ApplicationController
   PRIS = {
     "25" => [{
       raison_sociale: "ADIL 25",
-      id_clavis: 5264,
+      id_clavis: 5421,
       adresse_postale: {
         adresse1: "1 Rue de Ronde du Fort Griffon",
         adresse2: "",
